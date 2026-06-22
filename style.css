@@ -1,0 +1,644 @@
+/* ==========================================================================
+   PHASE 1 — BASIC CSS SETUP & RESET
+   ========================================================================== */
+
+/* Removing default browser spacing. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global font styling and page background color */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffdf9;
+    /* Soft cream white background for a bakery feel */
+    color: #2c1a11;
+    /* Dark chocolate brown text color for great contrast */
+    line-height: 1.6;
+}
+
+/* Smooth page scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ==========================================================================
+   PHASE 2 – HEADER & NAVIGATION (Flexbox Layout)
+   ========================================================================== */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Bonus Challenge: Sticky Navigation */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Styling the Font Awesome Cake Icon inside Logo */
+.logo h2 i { 
+    color: #ff6b81;
+    /* Making the cake icon pastel pink */
+    margin-right: 2px;
+    /* Slight spacing between icon and text */
+}
+
+.logo h2 span {
+    color: #ff6b81;
+    /* Pastel pink highlight for the cake theme */
+}
+
+/* Navigation Links Alignment */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+    /* Spacing between menu items */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2c1a11;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    /* Feedback smooth transition */
+}
+
+/* Hover Effect for Links */
+.nav-links a:hover {
+    color: #ff6b81;
+}
+
+
+/* ==========================================================================
+   PHASE 3 – HERO SECTION (Full-Screen Visual)
+   ========================================================================== */
+
+.hero-section {
+    height: calc(100vh - 74px);
+    /* Making the section fill the screen height */
+    /* 2 FOCUS USER MIND ATTRACTION BY BACKGROUND IMAGE*/
+    background: linear-gradient(rgba(255, 253, 249, 0.75), rgba(255, 253, 249, 0.75)),
+        url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    padding: 0 20px;
+    scroll-margin-top: 90px; 
+}
+
+/* Visual Hierarchy Setup */
+.hero-content h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: #2c1a11;
+}
+
+.hero-content .highlight {
+    color: #ff6b81;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #292929;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Call-to-Action Button Styling */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #ff6b81;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 107, 129, 0.3);
+    transition: transform 0.5s ease, background-color 0.3s ease;
+}
+
+/* Button Hover Animation (Bonus Challenge preview) */
+.btn-primary:hover {
+    background-color: #e05268;
+    transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   PHASE 4 — ABOUT SECTION (Typography & Whitespace)
+   ========================================================================== */
+
+.about-section {
+    padding: 100px 20px;
+    background-color: #ffffff;
+    /* Contrast switch from the hero background */
+    text-align: center;
+}
+
+/*Letter  <-- --> Spacing in About */
+.about-container {
+    max-width: 700px;
+    /* UI Principle: Limiting paragraph width for readability */
+    margin: 0 auto;
+}
+
+.about-section h2,
+.services-section h2 {
+    font-size: 36px;
+    color: #2c1a11;
+    margin-bottom: 15px;
+}
+
+/* Beautiful Full-Width Divider Line for Section Headings */
+.divider {
+    width: 100%;
+    /* Making the underline span the full container width */
+    height: 3px;
+    /* Clean standard thickness */
+    background-color: #ff6b81;
+    /* Premium pastel pink accent color */
+    margin: 15px 0 35px 0;
+    /* Clear spacing below the heading text */
+    border-radius: 2px;
+}
+
+.about-text {
+    font-size: 17px;
+    color: #555555;
+    margin-bottom: 20px;
+    text-align: justify;
+    /* Cleans up line presentation */
+}
+
+
+/* ==========================================================================
+   PHASE 5 — SERVICES SECTION (Box Model & Cards Layout)
+   ========================================================================== */
+
+.services-section {
+    padding: 100px 8%;
+    background-color: #fffdf9;
+    /* Reverts back to soft cream */
+}
+
+.services-container {
+    text-align: center;
+}
+
+/* Bonus Challenge: Services section using CSS Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Equal columns [Consistency] */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* The Box Model applied to cards */
+.service-card {
+    background-color: #ffffff;
+    border: 1px solid #f1ece6;
+    /* Simple aesthetic border */
+    border-radius: 12px;
+    padding: 25px;
+    /* Internal spacing */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    text-align: left;
+    transition: transform 1s ease, box-shadow 0.3s ease;
+    /* Pre-requisite for hover feedback */
+}   
+
+
+/* Card Image Setup */
+.card-img-holder {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card-img-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    text-align: center;
+    color: #2c1a11;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #666666;
+}
+
+/* UI Feedback: Hover effects to indicate interactivity */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(44, 26, 17, 0.08);
+    border-color: #ff6b81;
+    /* Subtle border change on focus */
+}
+
+/* ==========================================================================
+   PHASE 5B — LIVE TRACK SECTION (Simple & Modern)
+   ========================================================================== */
+
+.track-section {
+    padding: 100px 20px;
+    background-color: #ffffff;
+    /* Clean contrast switch */
+    text-align: center;
+    scroll-margin-top: 90px; 
+}
+
+.track-container {
+    max-width: 800px;
+    /* Aligns with form container for consistency */
+    margin: 0 auto;  /*height 0 width auto */
+}
+/* track subheading */
+.track-sub {
+    color: #666666;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+/* Card layout for tracking system */
+.track-box {
+    background-color: #fffdf9;
+    /* Soft cream inside white section */
+    border: 1px solid #f1ece6;
+    border-radius: 12px;
+    padding: 40px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+/* Input layout */
+.track-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.track-input {
+    flex: 1;                                      /*cjhsdclajsdhvckajhsdvckahgsjdvckahsvckhagvcksdvcksdvckjhcsd*/
+    padding: 12px 15px;
+    border: 1px solid #dcd6cd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/*Focus indicator for track input */
+ .track-input:focus {
+    outline: none;
+    border-color: #ff6b81;
+}
+
+.btn-track {
+    padding: 12px 24px;
+    background-color: #2c1a11;
+    /* Strong dark brown contrast */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.btn-track:hover {
+    background-color: #ff6b81;
+    /* Brand pink feedback on hover */
+}
+
+/* Status steps layout */
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.step-num {
+    width: 35px;
+    height: 35px;
+    background-color: #e0e0e0;
+    /* Gray for inactive steps */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.step p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888888;
+}
+
+/* Active status step highlight */
+.step.active .step-num {
+    background-color: #ff6b81;
+    /* Highlighting active step with brand pink */
+    box-shadow: 0px 0px 0px 4px rgba(255, 107, 129, 0.2);
+}
+
+.step.active p {
+    color: #2c1a11;
+}
+
+/* ==========================================================================
+   PHASE 6 — CONTACT FORM (Input Styling & Focus Effects)
+   ========================================================================== */
+
+.contact-section {
+    padding: 100px 20px;
+    background-color: #ffffff;
+    /* Visual switch for simplicity */
+}
+
+.contact-container {
+    max-width: 600px;
+    /* Limits width for clean form structure */
+    margin: 0 auto;
+}
+
+.contact-sub {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* Form structure layout */
+.cake-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Clear spacing between fields */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Spacing between label and input */
+}
+
+.form-group label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c1a11;
+}
+
+/* Input and Select styling for accessibility */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #dcd6cd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    background-color: #fffdf9;
+    color: #2c1a11;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* UI Feedback: Focus animation when user clicks a field */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff6b81;
+    box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.15);
+    /* Soft highlight indicator */
+}
+
+/* Premium Button Look inside Form */
+.btn-submit {
+    padding: 14px;
+    background-color: #2c1a11;
+    /* Contrast dark brown button */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #ff6b81;
+    /* Shifts to brand pink on hover */
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================================
+   PHASE 7 — FOOTER (Visual Closure & Separation)
+   ========================================================================== */
+
+.main-footer {
+    background-color: #2c1a11;
+    /* Strong contrast background indicating page closure */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    /* Alignment principle */
+}
+
+.footer-content p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.footer-content .footer-credit {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+
+
+
+/* ==========================================================================
+   PHASE 8 — RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+
+/* 1. TABLET LAYOUT (Screens smaller than 992px) */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 20px 5%;
+        /* Reducing padding to fit smaller screens */
+    }
+
+    .services-grid {
+        gap: 20px;
+        /* Reducing space between cards */
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+        /* Making font size slightly smaller for readability */
+    }
+}
+
+/* 2. MOBILE PHONE LAYOUT (Screens smaller than 768px) */
+@media (max-width: 768px) {
+
+    /* Header & Navigation Adjustments for Usability */
+    .main-header {
+        flex-direction: column;
+        /* Stacks logo and menu vertically */
+        gap: 15px;
+        padding: 15px 2%;
+    }
+
+    .nav-links {
+        padding-left: 0;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+        /* Balanced spacing between mobile menu items */
+    }
+
+    /* Hero Section Adjustments */
+    .hero-section {
+        height: auto;
+        padding: 80px 20px;
+        /* Adds healthy responsive spacing */
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+        /* Optimizing heading for mobile viewport */
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /* About Section Control */
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .about-text {
+        text-align: left;
+        /* Easier to read on small screens */
+    }
+
+    /* Services Section Card Stacking (Flex-direction Change) */
+    .services-section {
+        padding: 60px 5%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        /* Converts 3 columns to 1 column on mobile */
+        gap: 25px;
+    }
+
+    /* Contact Form & Footer Adjustments */
+    .contact-section {
+        padding: 60px 20px;
+    }
+
+    .main-footer {
+        padding: 30px 15px;
+    }
+}
+
+/* Mobile adjustment for Track Section */
+.track-section {
+    padding: 60px 20px;
+}
+
+.track-input-group {
+    flex-direction: column;
+    /* Stacks input and button vertically on mobile */
+}
+
+
+
+/* Custom styling for the newly added Live Track menu item */
+.nav-links .live-track-link {
+    color: #2c1a11;
+    /* Consistent base dark chocolate text color */
+}
+
+/* Subtle unique hover accent just for Live Track to maintain proper feedback principle */
+.nav-links .live-track-link:hover {
+    color: #ff6b81;
+    /* Transforms to brand pink on focus */
+}
+
+/* Fix for Back to Top Button: Makes it float and removes bottom white space */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background-color: #ff6b81;
+    /* Our brand pink background */
+    color: #ffffff;
+    /* White arrow */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Makes it a beautiful circle */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    /* Ensures it stays on top of all content */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for the floating button */
+.back-to-top:hover {
+    background-color: #2c1a11;
+    /* Turns dark brown on hover */
+    transform: translateY(-3px);
+}
